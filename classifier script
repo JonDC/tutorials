@@ -1,0 +1,40 @@
+setwd("D:/desktop/Experimental Political Science")
+trainData <- read.csv("hetero.csv", sep = ",")
+testData <- read.csv("homo.csv", sep = ",")
+install.packages("Amelia")
+install.packages("stargazer")
+
+options(scipen = 999) # disables scientific notation
+
+############################### analyzing training data ##################################
+
+LLL = function() {
+  library(Hmisc) 
+  library(MASS)
+  library(psych)
+  library(car)
+  library(Amelia)
+  library(stargazer)
+  print("Aye aye captain!")
+}
+LLL() # loading libraries for logistic regression analysis
+summary(trainData)
+missmap(trainData, main = "Missing and Observed values") # visual representation of missing values
+
+# dropping Response ID, CLINT_ETHIC_1 and TRUMP_ETHIC_1 due to missing values
+trainData <- subset(trainData, select = c(2,3,4,7,8,9,10))
+
+trainModel <- glm(VOTE_1 ~., data = trainData)
+summary(trainModel) 
+
+anova(trainModel, test = "Chisq") # EDU adds to most
+stargazer::stargazer(trainModel)
+
+################################ assessing predictive results ####################################
+
+fit.results <- predict(trainModel, testData = subset(testData, select = c(6,7,8,9,10,11)), type = 'response')
+fit.results <- ifelse(fit.results > 0.33, 1, 0)
+myClassifyError <- mean(fit.results != testData$VOTE_2)
+print(paste('Model Accuracy: ', 1 - myClassifyError))
+
+
