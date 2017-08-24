@@ -1,0 +1,70 @@
+################################################# mapping data tutorial ########################################
+
+InstallPacks = function() {
+  install.packages("ggmap")
+  install.packages("rgeos")
+  install.packages("maptools")
+  install.packages("dplyr")
+  install.packages("tidyr")
+  install.packages("tmap")
+  install.packages("leaflet")
+  print("Ready captain!")
+}
+
+InstallPacks()
+
+LoadPacks = function() {
+  library("ggmap")
+  library("rgeos")
+  library("maptools")
+  library("dplyr")
+  library("tidyr")
+  library("tmap")
+  library("leaflet")
+  library("rgdal")
+  print("aye aye captain!")
+}
+
+LoadPacks()
+
+lnd <- readOGR("data", "london_sport")
+
+# spatial objects have two slots: a data and a non-data slot (geographic coordinates). Use @ to select either one
+
+head(lnd@data, n = 10)
+mean(lnd$Partic_Per)
+
+#checking the class of variables in the dataset
+sapply(lnd@data, class)
+lnd$Pop_2001 <- as.numeric(as.character(lnd$Pop_2001)) #coercing Pop_2001 into numerical class
+sapply(lnd@data, class) # Pop_2001 now numeric
+
+############################################ plotting data from lnd object #####################################
+
+# an example of functional ploymorphism as the plot function changes its output depending on fed data
+plot(lnd)
+plot(lnd@data)
+
+plot(lnd, col = "lightgrey")
+high <- lnd$Partic_Per > 25
+plot(lnd[low, ], col = "green", add = T)
+
+medium <- lnd$Partic_Per > 20 & lnd$Partic_Per < 25
+plot(lnd[medium, ], col = "yellow", add = T)
+
+low <- lnd$Partic_Per <= 20
+plot(lnd[low, ], col = "red", add = T)
+
+# how to select quadrants
+
+lat <- coordinates(gCentroid(lnd))[[1]]
+lng <- coordinates(gCentroid(lnd))[[2]]
+
+east <- sapply(coordinates(lnd)[,1], function(x) x > lat)
+north <- sapply(coordinates(lnd)[,2], function(x) x > lng)
+
+lnd@data$quadrant[east & north] <- "northeast"
+
+
+
+     
