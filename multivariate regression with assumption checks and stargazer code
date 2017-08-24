@@ -1,0 +1,58 @@
+educsv <- read.csv("R4Regression_Diagnostics_Dragusin.csv", sep = " ")
+standardize <- function(x) {(x - mean(x, na.rm = T))/sd(x, na.rm = T)}
+options(scipen = 999)
+library (psych)
+install.packages("car")
+library (car)
+
+#checking normality for 'size' variable = normal
+hist(educsv$size)
+skewness(educsv$size)
+kurtosis(educsv$size)
+
+#checking normality for 'nonpart' = normal
+hist(educsv$nonpart)
+skewness(educsv$nonpart)
+kurtosis(educsv$nonpart)
+
+#checkin normality for 'dropouts' = normal, though skewness is a bit high
+hist(educsv$dropouts)
+skewness(educsv$dropouts)
+kurtosi(educsv$dropouts)
+
+#running reg model
+fit <- lm(dropouts~size+civics+nonpart+socec, data = educsv)
+fit
+library(stargazer)
+stargazer(fit)
+
+#checking for outliers = mostly alright
+plot(fit, which = 4)
+leveragePlots(fit)
+library(car)
+plot(fit, which = 5)
+
+#checking for residuals normality = outlying residuals
+qqPlot(fit, main = "QQ Plot")
+library(MASS)
+sresid <- studres(fit)
+hist(sresid, freq = FALSE, main = "Distribution of Studentized Residuals", ylim = c(0, 0.4))
+hist(sresid, freq = FALSE, main = "Distribution of Studentized Residuals", ylim = c(0, 0.4))
+xfit <- seq(min(sresid), max(sresid), length = 40)
+yfit <- dnorm(xfit)
+lines(xfit, yfit)
+
+#checking for non colinearity = nonpart and socec have high scores with a conservative estimate
+vif(fit)
+
+#evaluating nonlinearity
+crPlots(fit)
+library(Hmisc)
+correlation.matrix <- cor(educsv[,c("size", "civics", "nonpart", "socec", "dropouts" )])
+stargazer(correlation.matrix, title = "Correlations results")
+#evaluating homoskedasticity = constant
+ncvTest(fit)
+plot(fit, which = 1)
+
+x <- vif(fit)
+stargazer(x)
