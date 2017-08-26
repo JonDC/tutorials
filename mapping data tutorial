@@ -102,5 +102,16 @@ plot(newMap
      ,asp = 1
      ,main = "Ramnicu Valcea")
 
+# this way you can directly pull a map off of the API into R by using a google string to name the location. This 
+# way you can pull maps more easily but customization is more limited
 
+VLmap <- get_map (
+  location = "Ramnicu Valcea" # a string for the name that needs to match the name in the Google API
+  ,zoom = 15                  # degree of zooming in. the higher the number the higher the zoom
+  ,maptype = "hybrid"         # map type
+)
+
+map <- ggmap(VLmap)
+map <- map + labs(title = "Ramnicu Valcea") # map + labels
+print(map)
      
