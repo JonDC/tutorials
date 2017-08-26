@@ -65,6 +65,42 @@ north <- sapply(coordinates(lnd)[,2], function(x) x > lng)
 
 lnd@data$quadrant[east & north] <- "northeast"
 
+######################################## create new map of Ramnicu Valcea #######################################
+
+BeginFunction = function() {
+  install.packages("rworldmap")
+  install.packages("mapproj")
+  install.packages("ggmap")
+  print("Ready chief!")
+}
+
+BeginFunction()
+
+AllPacks = function() {
+  library(rworldmap)
+  library(mapproj)
+  library(ggplot2)
+  library(ggmap)
+  library(plyr)
+  print("Ready chief!")
+}
+
+AllPacks()
+
+# to pull a map off of google maps API you need to get the google geocode for it. To do this, 
+# access this link: https://developers.google.com/maps/documentation/geocoding/start and use the link in the 
+# example using your own address and key. You can get the key by pressing the key button at the top righ-hand
+# side of the page. Then use the google lat/long coordinates as they are used in the example below in the 
+# plot function. Although it is a more complicated way of pulling a map, you can use it to pull a map of any
+# address you can think of typing in the link.
+
+newMap <- getMap(resolution = "low")
+plot(newMap, main = "World")
+plot(newMap
+     ,xlim = c(45.139657, 24.3852712) 
+     ,ylim = c(45.06594339999999, 24.3183231) 
+     ,asp = 1
+     ,main = "Ramnicu Valcea")
 
 
      
