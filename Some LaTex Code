@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+
+
+\usepackage[toc,page]{appendix}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\oddsidemargin=20pt
+
+\begin{document}
+
+\title{Case Closed?: 
+A New Approach to Testing Experimental Results
+}
+\maketitle
+\author{Ionut Dragusin}
+
+\begin{abstract}
+\noindent
+
+Lorem ipsum dolor sit amet, no vel labitur bonorum antiopam, sea eu homero possim recusabo. Te mea quodsi honestatis. Per cu posse impetus evertitur, mei meis posse laoreet ei. Forensibus deterruisset vis no. Errem elitr dolorem eum eu, agam reformidans complectitur te sea. Id quo erat vitae accommodare.
+
+Eu iisque vivendo mei. At solet adipisci cum, eum scaevola vivendum conceptam ei, mea mutat fugit in. Ne vis sumo autem detraxit. Ut justo euismod vix.
+
+Usu et ullum noster fabellas, id pro quas vivendum democritum, nam et habeo luptatum accusamus. Graecis prodesset contentiones ex vim, ex propriae inimicus duo. Insolens mediocritatem nec et, etiam docendi qui et, his et volutpat reformidans. Te sea tempor constituam, sumo eruditi cu his, dicant noster hendrerit ei quo.
+
+Est ne consul nusquam volumus, in illum doming qui, insolens dissentias in est. No habemus epicuri maluisset his, ea vel unum copiosae dissentiunt. Ex intellegam deterruisset eos, ad vim prompta voluptua platonem, soleat inermis ad nam. An ponderum nominati maluisset duo, eos wisi alienum corrumpit te. Mei dicit commodo in.
+
+Ne ridens scripta per, mei saperet noluisse suavitate ea, sed prima facilisis ne. Cu usu noster integre abhorreant, cu his nullam petentium. Harum delenit ne pro. Per ad vidit probatus. Mei an purto consequuntur. Ius ei vitae affert ubique, verear insolens percipitur at has, no vix veniam dignissim. Te adhuc veniam sea, est prom
+pta lucilius no.
+
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+\keywords{opinion heterogeneity, expressive choice, turnout, logistic regression}
+
+\vspace{5mm}
+
+\section{The Paradox of Voting}
+\indent
+
+
+Lorem ipsum dolor sit amet, no vel labitur bonorum antiopam, sea eu homero possim recusabo. Te mea quodsi honestatis. Per cu posse impetus evertitur, mei meis posse laoreet ei. Forensibus deterruisset vis no. Errem elitr dolorem eum eu, agam reformidans complectitur te sea. Id quo erat vitae accommodare.
+
+Eu iisque vivendo mei. At solet adipisci cum, eum scaevola vivendum conceptam ei, mea mutat fugit in. Ne vis sumo autem detraxit. Ut justo euismod vix.
+
+Usu et ullum noster fabellas, id pro quas vivendum democritum, nam et habeo luptatum accusamus. Graecis prodesset contentiones ex vim, ex propriae inimicus duo. Insolens mediocritatem nec et, etiam docendi qui et, his et volutpat reformidans. Te sea tempor constituam, sumo eruditi cu his, dicant noster hendrerit ei quo.
+
+Est ne consul nusquam volumus, in illum doming qui, insolens dissentias in est. No habemus epicuri maluisset his, ea vel unum copiosae dissentiunt. Ex intellegam deterruisset eos, ad vim prompta voluptua platonem, soleat inermis ad nam. An ponderum nominati maluisset duo, eos wisi alienum corrumpit te. Mei dicit commodo in.
+
+Ne ridens scripta per, mei saperet noluisse suavitate ea, sed prima facilisis ne. Cu usu noster integre abhorreant, cu his nullam petentium. Harum delenit ne pro. Per ad vidit probatus. Mei an purto consequuntur. Ius ei vitae affert ubique, verear insolens percipitur at has, no vix veniam dignissim. Te adhuc veniam sea, est prom
+pta lucilius no.
+
+\section{Group Opinion}
+\indent
+
+Lorem ipsum dolor sit amet, no vel labitur bonorum antiopam, sea eu homero possim recusabo. Te mea quodsi honestatis. Per cu posse impetus evertitur, mei meis posse laoreet ei. Forensibus deterruisset vis no. Errem elitr dolorem eum eu, agam reformidans complectitur te sea. Id quo erat vitae accommodare.
+
+Eu iisque vivendo mei. At solet adipisci cum, eum scaevola vivendum conceptam ei, mea mutat fugit in. Ne vis sumo autem detraxit. Ut justo euismod vix.
+
+Usu et ullum noster fabellas, id pro quas vivendum democritum, nam et habeo luptatum accusamus. Graecis prodesset contentiones ex vim, ex propriae inimicus duo. Insolens mediocritatem nec et, etiam docendi qui et, his et volutpat reformidans. Te sea tempor constituam, sumo eruditi cu his, dicant noster hendrerit ei quo.
+
+Est ne consul nusquam volumus, in illum doming qui, insolens dissentias in est. No habemus epicuri maluisset his, ea vel unum copiosae dissentiunt. Ex intellegam deterruisset eos, ad vim prompta voluptua platonem, soleat inermis ad nam. An ponderum nominati maluisset duo, eos wisi alienum corrumpit te. Mei dicit commodo in.
+
+Ne ridens scripta per, mei saperet noluisse suavitate ea, sed prima facilisis ne. Cu usu noster integre abhorreant, cu his nullam petentium. Harum delenit ne pro. Per ad vidit probatus. Mei an purto consequuntur. Ius ei vitae affert ubique, verear insolens percipitur at has, no vix veniam dignissim. Te adhuc veniam sea, est prom
+pta lucilius no.
+
+\section{Design and Measurement}
+\indent
+
+
+Lorem ipsum dolor sit amet, no vel labitur bonorum antiopam, sea eu homero possim recusabo. Te mea quodsi honestatis. Per cu posse impetus evertitur, mei meis posse laoreet ei. Forensibus deterruisset vis no. Errem elitr dolorem eum eu, agam reformidans complectitur te sea. Id quo erat vitae accommodare.
+
+Eu iisque vivendo mei. At solet adipisci cum, eum scaevola vivendum conceptam ei, mea mutat fugit in. Ne vis sumo autem detraxit. Ut justo euismod vix.
+
+Usu et ullum noster fabellas, id pro quas vivendum democritum, nam et habeo luptatum accusamus. Graecis prodesset contentiones ex vim, ex propriae inimicus duo. Insolens mediocritatem nec et, etiam docendi qui et, his et volutpat reformidans. Te sea tempor constituam, sumo eruditi cu his, dicant noster hendrerit ei quo.
+
+Est ne consul nusquam volumus, in illum doming qui, insolens dissentias in est. No habemus epicuri maluisset his, ea vel unum copiosae dissentiunt. Ex intellegam deterruisset eos, ad vim prompta voluptua platonem, soleat inermis ad nam. An ponderum nominati maluisset duo, eos wisi alienum corrumpit te. Mei dicit commodo in.
+
+Ne ridens scripta per, mei saperet noluisse suavitate ea, sed prima facilisis ne. Cu usu noster integre abhorreant, cu his nullam petentium. Harum delenit ne pro. Per ad vidit probatus. Mei an purto consequuntur. Ius ei vitae affert ubique, verear insolens percipitur at has, no vix veniam dignissim. Te adhuc veniam sea, est prom
+pta lucilius no.
+
+\bibitem{Holmberg} 
+Holmberg, S. 
+\textit{Political Representation in Sweden}. Scandinavian Political Studies. 12: 1 - 36. 1989
+\end{document}
+
+
+
