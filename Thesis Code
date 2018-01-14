@@ -1,0 +1,55 @@
+############################################ CEU Thesis Coding ################################################
+
+LoadLibs = function() {
+  library(dplyr)
+  library(psych)
+  library(car)
+  library(stargazer)
+  library(ggplot2)
+  library(Hmisc)
+  library(MASS)
+  print("Ready chief!!")
+}
+
+LoadLibs()
+
+setwd("D:/desktop/thesis/data")
+
+# loading data, getting rid of scientific notation (25 variables, 845 observations)
+MRC <- read.csv("MRCData.csv", sep = ",")
+options(scipen = 999)
+
+# cleaning data, getting rid of observations with missing data
+MRCData <- as.data.frame(MRC)
+
+colnames(MRCData)[1] <- "PSD.PNL"
+colnames(MRCData)[2] <- "USR.ALDE"
+colnames(MRCData)[3] <- "PSD.PMP"
+colnames(MRCData)[4] <- "PNL.USR"
+colnames(MRCData)[5] <- "PSD.ALDE"
+colnames(MRCData)[6] <- "PNL.PMP"
+colnames(MRCData)[7] <- "PSD.USR"
+colnames(MRCData)[8] <- "USR.PMP"
+colnames(MRCData)[9] <- "PNL.ALDE"
+colnames(MRCData)[10] <- "ALDE.PMP"
+colnames(MRCData)[11] <- "Main_Diff"
+colnames(MRCData)[12] <- "Interest"
+colnames(MRCData)[13] <- "PSD.Prob"
+colnames(MRCData)[14] <- "PNL.Prob"
+colnames(MRCData)[15] <- "USR.Prob"
+colnames(MRCData)[16] <- "ALDE.Prob"
+colnames(MRCData)[17] <- "PMP.Prob"
+colnames(MRCData)[18] <- "UDMR.Prob"
+
+# the final.cases functions allows obs removal based only on certain cases (columns)
+MRCData[MRCData == 999] <- NA
+MRC_final <- MRCData[complete.cases(MRCData[ , 1:18]),] # 333 oservations left, 25 variables
+MRC2 <- MRC_final[-c(1), ] # dropping random obs as even number of obs is needed
+
+# creating difference matrix and plotting the distances
+install.packages('caret')
+set.seed(166)
+samp_size <- floor(0.5 * nrow(MRC2)) # set sample size
+Diff_Mat1 <- sample(seq_len(nrow(MRC2)), size = samp_size) # create randomized matrix
+Mat1 <- MRC2[Diff_Mat1, ] # create 1st randomized matrix from data set (166 obs, 25 variables)
+Mat2 <- MRC2[-Diff_Mat1, ] # create 2nd randomized matrix from data set (166 obs, 25 variables)
