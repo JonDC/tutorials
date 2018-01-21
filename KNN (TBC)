@@ -1,0 +1,41 @@
+################################################## KNN on CM ########################################################################
+
+setwd("D:/data")
+CastData <- read.csv("revised-seasonally-adjusted-indexes-2016.csv", sep = ",")
+
+install.packages("class")
+install.packages("lubridate")
+
+LoadPacks = function() {
+  library(class)
+  library(lubridate)
+  library(dplyr)
+  library(ggplot2)
+  library(Amelia)
+  library(psych)
+  library(Hmisc)
+  library(MASS)
+  print("Ready chief!")
+}
+
+LoadPacks()
+CastData <- as.data.frame(CastData)
+
+CastData[CastData == "SEASONAL FACTOR"] <- NA
+CastData[CastData == "UNADJUSTED INDEX"] <- NA
+CastData <- CastData[complete.cases(CastData), ] # after cleaning: 2345 obs. out of 7035; 17 variables
+CastData <- CastData[order(CastData[,5]), ] # ordered rows according to years: 2012, 2013, 2014, 2015, 2016
+
+############################################ Applying KNN ############################################
+
+CastData[ ,1:4] = NULL
+CastPredict <- CastData[which(CastData$YEAR == "2012"), ] # 469 obs. for 2012
+CastPredict[ ,1] = NULL
+
+# creating labels based on means
+
+CastID <- data.frame(ID = CastPredict[,1], Means = rowMeans(CastPredict))
+CastID[,1] = NULL
+CastPredict <- cbind(CastID, CastPredict)
+range(CastPredict$Means) # range of means is between 5.42 and 859.61
+mean(CastPredict$Means) # mean = 210.54
